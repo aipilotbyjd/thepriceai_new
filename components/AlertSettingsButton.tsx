@@ -14,7 +14,7 @@ export const AlertSettingsButton = ({ itemId }: AlertSettingsButtonProps) => {
 
   return (
     <TouchableOpacity onPress={handlePress}>
-      <Octicons name="settings" size={20} color="gray" />
+      <Octicons name="apps" size={20} color="gray" />
     </TouchableOpacity>
   );
 }; 
