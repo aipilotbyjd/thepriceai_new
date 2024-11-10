@@ -1,50 +1,69 @@
 import { Tabs } from 'expo-router';
 import { HeaderButton } from '../../components/HeaderButton';
+import { Platform } from 'react-native';
+import { COLORS, SPACING } from '../../constants/theme';
 import { TabBarIcon } from '../../components/TabBarIcon';
+
+const TAB_SCREENS = [
+  {
+    name: 'index',
+    label: 'Home',
+    icon: 'home',
+  },
+  {
+    name: 'search',
+    label: 'Track',
+    icon: 'search',
+  },
+  {
+    name: 'trending',
+    label: 'Trending',
+    icon: 'flame',
+  },
+  {
+    name: 'alerts',
+    label: 'Alerts',
+    icon: 'bell',
+  },
+  {
+    name: 'account',
+    label: 'Account',
+    icon: 'person',
+  },
+] as const;
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerRight: () => <HeaderButton />,
-        }}
-      />
-      <Tabs.Screen
-        name="search"
-        options={{
-          title: 'Search & Track',
-          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="wishlist"
-        options={{
-          title: 'Wishlist & Alerts',
-          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="deals"
-        options={{
-          title: 'Deals & Coupons',
-          tabBarIcon: ({ color }) => <TabBarIcon name="tag" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="account"
-        options={{
-          title: 'Account',
-          tabBarIcon: ({ color }) => <TabBarIcon name="person" color={color} />,
-        }}
-      />
+        tabBarStyle: {
+          height: Platform.OS === 'ios' ? SPACING.tabBarHeight.ios : SPACING.tabBarHeight.android,
+          paddingBottom:
+            Platform.OS === 'ios' ? SPACING.tabBarPadding.ios : SPACING.tabBarPadding.android,
+          backgroundColor: COLORS.white,
+          borderTopWidth: 1,
+          borderTopColor: COLORS.gray[100],
+        },
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: COLORS.gray[400],
+        headerStyle: {
+          backgroundColor: COLORS.white,
+        },
+        headerTitleStyle: {
+          color: COLORS.secondary,
+          fontWeight: 'bold',
+        },
+      }}>
+      {TAB_SCREENS.map((screen) => (
+        <Tabs.Screen
+          key={screen.name}
+          name={screen.name}
+          options={{
+            title: screen.label,
+            tabBarIcon: ({ color }) => <TabBarIcon name={screen.icon} color={color} />,
+          }}
+        />
+      ))}
     </Tabs>
   );
 }

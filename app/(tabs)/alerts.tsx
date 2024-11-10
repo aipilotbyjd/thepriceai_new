@@ -2,7 +2,7 @@ import { View, Text, FlatList } from 'react-native';
 import { WishlistItem } from '../../components/WishlistItem';
 import { AlertSettingsButton } from '../../components/AlertSettingsButton';
 
-export default function Wishlist() {
+export default function Alerts() {
   const wishlistData = [
     // Sample data
     { id: '1', category: 'Electronics', name: 'Smartphone' },
