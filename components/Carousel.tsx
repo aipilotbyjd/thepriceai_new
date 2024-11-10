@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Image, Dimensions } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import { View, Image, Dimensions, StyleSheet } from 'react-native';
+import Carousel from 'react-native-reanimated-carousel';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -11,20 +11,35 @@ const DATA = [
 ];
 
 export const CarouselComponent = () => {
-  const renderItem = ({ item }: { item: { id: string; image: string } }) => (
-    <Image source={{ uri: item.image }} style={{ width: screenWidth - 40, height: 150, borderRadius: 10 }} />
-  );
-
   return (
-    <View className="mb-4">
+    <View style={styles.container}>
       <Carousel
-        data={DATA}
-        renderItem={renderItem}
-        sliderWidth={screenWidth}
-        itemWidth={screenWidth - 40}
-        autoplay
+        width={screenWidth - 40}
+        height={150}
         loop
+        autoPlay={true}
+        data={DATA}
+        scrollAnimationDuration={1000}
+        renderItem={({ index }) => (
+          <Image
+            key={DATA[index].id}
+            source={{ uri: DATA[index].image }}
+            style={styles.image}
+          />
+        )}
       />
     </View>
   );
-}; 
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginBottom: 16,
+  },
+  image: {
+    width: screenWidth - 40,
+    height: 150,
+    borderRadius: 10,
+  },
+}); 

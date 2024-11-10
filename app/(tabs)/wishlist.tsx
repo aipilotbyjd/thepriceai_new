@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from 'react-native';
-import { WishlistItem } from '~/components/WishlistItem';
-import { AlertSettingsButton } from '~/components/AlertSettingsButton';
+import { WishlistItem } from '../../components/WishlistItem';
+import { AlertSettingsButton } from '../../components/AlertSettingsButton';
 
 export default function Wishlist() {
   const wishlistData = [
@@ -19,7 +19,7 @@ export default function Wishlist() {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <View className="flex-row justify-between items-center p-2">
-                <Text>{item.name}</Text>
+                <WishlistItem name={item.name} image="url" price="$100" />
                 <AlertSettingsButton itemId={item.id} />
               </View>
             )}

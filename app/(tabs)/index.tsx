@@ -1,22 +1,14 @@
-import { Stack } from 'expo-router';
-import { StyleSheet, View } from 'react-native';
-
-import { ScreenContent } from '~/components/ScreenContent';
+import { ScrollView } from 'react-native';
+import { CarouselComponent } from '~/components/Carousel';
+import { CategoryShortcuts } from '~/components/CategoryShortcuts';
+import { Recommendations } from '~/components/Recommendations';
 
 export default function Home() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Tab One' }} />
-      <View style={styles.container}>
-        <ScreenContent path="app/(tabs)/index.tsx" title="Tab One" />
-      </View>
-    </>
+    <ScrollView className="flex-1 bg-white p-4">
+      <CarouselComponent />
+      <CategoryShortcuts />
+      <Recommendations />
+    </ScrollView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 24,
-  },
-});
+} 

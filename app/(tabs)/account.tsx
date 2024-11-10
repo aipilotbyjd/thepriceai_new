@@ -1,8 +1,8 @@
-import { View, Text, TouchableOpacity } from 'react-native';
-import { ProfileDetails } from '~/components/ProfileDetails';
-import { Settings } from '~/components/Settings';
-import { SavedSearches } from '~/components/SavedSearches';
-import { HelpSupport } from '~/components/HelpSupport';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { ProfileDetails } from '../../components/ProfileDetails';
+import { Settings } from '../../components/Settings';
+import { SavedSearches } from '../../components/SavedSearches';
+import { HelpSupport } from '../../components/HelpSupport';
 
 export default function Account() {
   return (

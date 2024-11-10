@@ -1,7 +1,7 @@
 import { View, Text, TextInput, FlatList } from 'react-native';
 import { useState } from 'react';
-import { SearchBar } from '~/components/SearchBar';
-import { DiscoverSection } from '~/components/DiscoverSection';
+import { SearchBar } from '../../components/SearchBar';
+import { DiscoverSection } from '../../components/DiscoverSection';
 
 export default function Search() {
   const [query, setQuery] = useState('');
