@@ -1,6 +1,7 @@
 {
   "name": "thepriceai",
   "version": "1.0.0",
+  "description": "The Price AI, i am making a price tracker mobile app like on amazon flipkart myntra and many more platforms product link enter and see his price histry what featureas i can make for that and also give me lots of ways to earn money from my app but i dopnt want to charge my customers also give me manus that i can make tabs on my aap like main parts ",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start --dev-client",
